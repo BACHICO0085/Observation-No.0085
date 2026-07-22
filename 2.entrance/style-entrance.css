@@ -1,0 +1,81 @@
+@charset "UTF-8";
+body{
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Cormorant Garamond', 'Noto Serif JP', 'Times New Roman', serif;
+    font-weight: 300;
+
+    overflow-x: hidden;
+}
+
+/* background ------------------------------ */
+.fixed-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url(../images/IMG_2441.PNG);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+/* title ------------------------------------ */
+.scroll-container{
+    position: relative;
+    width: 100%;
+}
+
+.title-section{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.fade-in-group{
+    opacity: 0;
+    transform: translateY(40px);
+}
+.main-title{
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin: 0 0 10px 0;
+    letter-spacing: 8px;
+    text-shadow: 0 0 20px rgba(225, 225, 225, 0.2);
+}
+.sub-title{
+    font-size: 1.2rem;
+    font-style: italic;
+    color: rgba(225, 225, 225, 0.8);
+    margin: 0;
+    letter-spacing: 4px;
+}
+
+.flash-in-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 9999;
+
+    animation: fadeOutFlash 1.5s forwards cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+}
+@keyframes fadeOutFlash{
+    0%{ opacity: 1;}
+    12%{ opacity: 1;}
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+.spacer-section{
+    height: 50vh;
+}
