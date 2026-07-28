@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+
+        <title>Entrance - Observation No.0085</title>
+        <meta name="description" content="BACHICOについての観測所">
+
+        <!-- reset css -->
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+        
+        <!-- original css, js -->
+        <link rel="stylesheet" href="style-entrance.css">
+        <script defer src="script-entrance.js"></script>
+
+        <!-- ogp -->
+
+    </head>
+
+    <body>
+        <div id="flash-overlay"></div>
+
+        <div class="fixed-background"></div>
+
+        <header id="global-header" class="global-header">
+            <nav class="header-nav">
+                <a href="#keeper">The Keeper</a>
+                <a href="#archive">Archive</a>
+                <a href="#world-log">World Log</a>
+            </nav>
+        </header>
+
+        <div id="hero-title" class="title-container">
+            <a href="entrance.html" id="logo-link">
+                <h1 class="main-title">Observation No.0085</h1>
+                <p class="sub-title">Somewhere between worlds.</p>
+            </a>
+        </div>
+        
+        <div id="cotton-img" class="cotton-character">
+            <img src="../images/export.png" alt="CottonArkwright" class="cotton-body">
+            <p class="cotton-name">Cotton Arkwright</p>
+        </div>
+        <div id="cotton-comment" class="comment-container">
+            <div class="speech-bubble">
+                <p id="typed-text"></p>
+            </div>
+        </div>
+
+        <div class="comment-container"></div>
+        <div id="orb-system" class="orb-system">
+            <div class="orb-container">
+
+                <div class="orb" data-url="#keeper">
+                    <div class="orb-visual"></div>
+                    <div class="orb-info">
+                        <h3 class="orb-title">The Keeper</h3>
+                        <p class="orb-disc">案内人コットン・アークライトの部屋</p>
+                    </div>
+                </div>
+
+                <div class="orb" data-url="#archive">
+                    <div class="orb-visual"></div>
+                    <div class="orb-info">
+                        <h3 class="orb-title">Archive</h3>
+                        <p class="orb-disc">これまでの創作物の展示場</p>
+                    </div>
+                </div>
+
+                <div class="orb" data-url="#world-log">
+                    <div class="orb-visual"></div>
+                    <div class="orb-info">
+                        <h3 class="orb-title">World Log</h3>
+                        <p class="orb-disc">仮想世界での写真や記憶の欠片</p>
+                    </div>
+                </div>
+
+                <div class="orb" data-url="#collection">
+                    <div class="orb-visual"></div>
+                    <div class="orb-info">
+                        <h3 class="orb-title">Collection</h3>
+                        <p class="orb-disc">好きなもの、大切なものをかき集めた宝箱</p>
+                    </div>
+                </div>
+
+                <div class="orb" data-url="#Observation Note">
+                    <div class="orb-visual"></div>
+                    <div class="orb-info">
+                        <h3 class="orb-title">Observation Note</h3>
+                        <p class="orb-disc">日々の思考と更新記録</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main class="scroll-space"></main>
+
+    </body>
+</html>
