@@ -1,19 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const heroTitle = document.getElementById('hero-title');
     const header = document.getElementById('global-header');
+    const menuButton = document.querySelector('.button-menu');
+    const mainMenu = document.querySelector('.main-nav');
 
-    const cottonImg = document.getElementById('cotton-img')
+    const cottonImg = document.getElementById('cotton-img');
     const cottonComment = document.getElementById('cotton-comment');
     const typedTextElement = document.getElementById('typed-text');
     let typingStated = false;
 
     const orbSystem = document.getElementById('orb-system');
     const orbs = document.querySelectorAll('.orb');
+    const cottonBody = document.querySelectorAll('.cotton-body');
     const totalOrbs = orbs.length
 
     const radiusX = 350;
     const radiusY = 100;
-    const orbScrollStart = 2000;
+    const orbScrollStart = 2800;
+
+    menuButton.addEventListener('click', () => {
+        mainMenu.classList.toggle('open-menu');
+        if(menuButton.innerHTML === "Menu"){
+            menuButton.innerHTML = "Close";
+        } else {
+            menuButton.innerHTML = "Menu";
+        }
+    })
     
     const textLines = [
         "ようこそ、観測者さん。",
@@ -69,9 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
             cottonImg.classList.remove('is-visible');
         }
 
-        if(scrollY > orbScrollStart - 200){
+        if(scrollY > orbScrollStart - 800){
             orbSystem.classList.add('is-visible');
-            cottonImg.classList.remove('is-visible');
+            cottonComment.classList.remove('is-active');
             cottonImg.classList.add('is-orb');
         }else{
             orbSystem.classList.remove('is-visible');
