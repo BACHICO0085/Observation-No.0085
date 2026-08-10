@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-body{
+body {
     margin: 0;
     padding: 0;
     background-color: #03080c;
@@ -8,8 +8,24 @@ body{
     color: #ffffff;
     overflow-x: hidden;
 }
+body a::after {
+  background-color: #ffffff;
+  bottom: -4px;
+  content: ""; /* 要素に内容を追加 */
+  height: 2px; /* 下線の高さ */
+  left: 0; /* 要素の左端からの距離 */
+  position: absolute; /* 絶対位置指定 */
+  transform: scale(0, 1); /* 下線を横方向に0倍、縦方向に1倍に変形（非表示） */
+  transform-origin: left top; /* 変形の原点を左上に指定 */
+  transition: transform .3s; /* 変形をアニメーション化 */
+  width: 100%; /* 要素の幅 */
+}
+/* リンクにホバーした際の下線の表示 */
+body a:hover::after {
+  transform: scale(1, 1); /* 下線を横方向に1倍、縦方向に1倍に変形（表示） */
+}
 
-.fixed-background{
+.fixed-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -21,7 +37,7 @@ body{
     z-index: 1;
 }
 
-#flash-overlay{
+#flash-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -30,22 +46,22 @@ body{
     background-color: #ffffff;
     z-index: 9999;
     pointer-events: none;
-    animation: flashFadeOut 2.5s ease-out forwards;
-}
-@keyframes flashFadeOut{
-    0% {opacity: 1;}
-    12% {opacity: 1;}
-    100% {opacity: 0; visibility: hidden;}
+    transition: opacity 2.5s ease-out, visibility 2.5s ease-out;
 }
 
-.scroll-space{
+#flash-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scroll-space {
     position: relative;
     height: 600vh;
     z-index: 2;
 }
 
 /* header ---------------------------------- */
-.global-header{
+.global-header {
     position: fixed;
     top: 0;
     left: 0;
@@ -65,10 +81,12 @@ body{
     align-items: center;
     padding-right: 50px;
 }
-.global-header.is-active{
+
+.global-header.is-active {
     transform: translateZ(0);
 }
-.header-nav a{
+
+.header-nav a {
     color: #ffffff;
     text-decoration: none;
     margin-left: 40px;
@@ -76,11 +94,13 @@ body{
     letter-spacing: 0.15em;
     transition: color 0.3s ease, text-shdow 0.3s ease;
 }
-.header-nav a:hover{
+
+.header-nav a:hover {
     color: #7fffd4;
     text-shadow: 0 0 15px rgba(127, 255, 212, 0.6);
 }
-.button-menu{
+
+.button-menu {
     color: #ffffff;
     text-decoration: none;
     margin-left: 40px;
@@ -88,11 +108,13 @@ body{
     letter-spacing: 0.15em;
     transition: color 0.3s ease, text-shdow 0.3s ease;
 }
-.button-menu:hover{
+
+.button-menu:hover {
     color: #7fffd4;
     text-shadow: 0 0 15px rgba(127, 255, 212, 0.6);
 }
-.main-nav{
+
+.main-nav {
     position: absolute;
     top: 0;
     right: 0;
@@ -104,18 +126,20 @@ body{
     background-color: #03080c;
     pointer-events: none;
 }
-.main-nav li{
+
+.main-nav li {
     list-style: none;
     text-align: center;
     margin: 1.5rem 0;
 }
-.main-nav.open-menu{
+
+.main-nav.open-menu {
     width: 30vw;
 }
 
 
 /* title ----------------------------------- */
-.title-container{
+.title-container {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -126,24 +150,26 @@ body{
     opacity: 0;
 
     transition: top 1.2s cubic-bezier(0.215, 0.61, 0.355, 1),
-                left 1.2s cubic-bezier(0.215, 0.61, 0.355, 1),
-                transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1),
-                opacity 1.5s ease;
+        left 1.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+        transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+        opacity 1.5s ease;
 }
-#logo-link{
+
+#logo-link {
     text-decoration: none;
     color: inherit;
     pointer-events: none;
 }
 
-.main-title{
+.main-title {
     font-size: 5rem;
     margin: 0;
     letter-spacing: 0.1em;
     font-weight: 300;
     text-shadow: 0 0 15px rgba(127, 255, 212, 0.3);
 }
-.sub-title{
+
+.sub-title {
     font-size: 1.5rem;
     margin-top: 10px;
     letter-spacing: 0.2em;
@@ -151,27 +177,32 @@ body{
     opacity: 1;
     transition: opacity 0.8s ease;
 }
-.title-container.is-visible{
+
+.title-container.is-visible {
     opacity: 1;
 }
-.title-container.is-header{
+
+.title-container.is-header {
     top: 20px;
     left: 40px;
     transform: translate(0, 0) scale(0.35);
 }
-.title-container.is-header .sub-title{
+
+.title-container.is-header .sub-title {
     opacity: 0;
 }
-.title-container.is-header #logo-link{
+
+.title-container.is-header #logo-link {
     pointer-events: auto;
 }
-#logo-link:hover .main-title{
+
+#logo-link:hover .main-title {
     text-shadow: 0 0 25px rgba(127, 255, 212, 0.8);
     transition: text-shadow 0.3s ease;
 }
 
 /* Cotton Arkwright ------------------------------ */
-.comment-container{
+.comment-container {
     position: fixed;
     top: 35%;
     left: 45%;
@@ -182,12 +213,13 @@ body{
     transition: opacity 1.5s ease, visibility 1.5s ease;
     z-index: 11;
 }
-.comment-container.is-active{
+
+.comment-container.is-active {
     opacity: 1;
     visibility: visible;
 }
 
-.cotton-character{
+.cotton-character {
     position: fixed;
     top: 0;
     left: 0;
@@ -197,20 +229,22 @@ body{
 
     opacity: 0;
     visibility: hidden;
-    transition: transform 1.5s cubic-bezier(0.215, 0.61, 0.355, 1), 
-                opacity 1.5s ease, 
-                visibility 1.5s ease;
+    transition: transform 1.5s cubic-bezier(0.215, 0.61, 0.355, 1),
+        opacity 1.5s ease,
+        visibility 1.5s ease;
     z-index: 10;
 }
-.cotton-character.is-visible{
+
+.cotton-character.is-visible {
     transform: translateX(10%);
     opacity: 1;
     visibility: visible;
 }
+
 /* .cotton-character.is-orb{
     transform: translate(2%, -92%);
 } */
-.cotton-character img{
+.cotton-character img {
     position: fixed;
     top: 0;
     left: 0;
@@ -218,26 +252,30 @@ body{
     height: 150vh;
     transform: translate(0%, 5%);
     transition: height 1.5s ease,
-                transform 1.5s ease;      
+        transform 1.5s ease;
 }
-.cotton-character.is-orb img{
-    width: auto; height: 70vh;
+
+.cotton-character.is-orb img {
+    width: auto;
+    height: 70vh;
     transform: translate(15%, 45%);
 }
-.cotton-character p{
+
+.cotton-character p {
     position: fixed;
     top: 37%;
     left: 5%;
     opacity: 1;
-    transition: opacity 1.5s ease, 
-                left 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);     
+    transition: opacity 1.5s ease,
+        left 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.cotton-character.is-orb p{
+
+.cotton-character.is-orb p {
     left: -5%;
     opacity: 0;
 }
 
-.speech-bubble{
+.speech-bubble {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
@@ -245,10 +283,10 @@ body{
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);    
+    -webkit-backdrop-filter: blur(10px);
 }
 
-#typed-text{
+#typed-text {
     margin: 0;
     font-size: 1rem;
     line-height: 1.6;
@@ -256,28 +294,36 @@ body{
 }
 
 /* orb system ------------------------------------ */
-.orb-system{
+.orb-system {
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     opacity: 0;
     transition: opacity 1s ease;
     z-index: 800;
 }
-.orb-system.is-visible{
+
+.orb-system.is-visible {
     opacity: 1;
     pointer-events: auto;
 }
-.orb-container{
+
+.orb-container {
     position: absolute;
-    top: 60%; left: 50%;
-    width: 100%; height: 100%;
+    top: 60%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
     transform: translate(-50%, -50%);
 }
-.orb{
+
+.orb {
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transition: transform 0.1s ease-out, filter 0.3s ease;
     cursor: pointer;
     user-select: none;
@@ -286,20 +332,24 @@ body{
     flex-direction: column;
     align-items: center;
 }
-.orb-visual{
-    width: 100px; height: 100px;
+
+.orb-visual {
+    width: 100px;
+    height: 100px;
     background: rgba(127, 255, 212, 0.15);
     border-radius: 100%;
     border: 1px solid rgba(127, 255, 212, 0.4);
 }
-.orb-info{
+
+.orb-info {
     margin-top: 15px;
     opacity: 0;
     transform: translateY(15px);
     transition: all 0.5s ease;
     pointer-events: none;
 }
-.orb-title{
+
+.orb-title {
     color: #ffffff;
     font-family: 'Noto Serif JP', serif;
     font-size: 1.2rem;
@@ -307,20 +357,24 @@ body{
     letter-spacing: 0.05em;
     text-shadow: 0 0 10px rgba(127, 255, 212, 0.5);
 }
-.orb-desc{
+
+.orb-desc {
     color: rgba(225, 225, 225, 0.7);
     font-size: 0.85rem;
     margin: 0;
 }
-.orb.is-front .orb-visual{
+
+.orb.is-front .orb-visual {
     background: rgba(127, 255, 212, 0.4);
     box-shadow: 0 0 30px rgba(127, 255, 212, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.5);
     border-color: rgba(127, 255, 212, 0.8);
 }
-.orb.is-front .orb-info{
+
+.orb.is-front .orb-info {
     opacity: 1;
     transform: translateY(0);
 }
-.orb:not(.is-front){
+
+.orb:not(.is-front) {
     filter: brightness(0.5);
 }

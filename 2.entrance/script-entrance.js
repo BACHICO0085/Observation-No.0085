@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const flashLight = document.getElementById('flash-overlay');
+            if (flashLight) {
+                flashLight.classList.add('fade-out');
+            }
+        }, 500);
+    });
+
     const heroTitle = document.getElementById('hero-title');
     const header = document.getElementById('global-header');
     const menuButton = document.querySelector('.button-menu');
@@ -12,21 +21,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const orbSystem = document.getElementById('orb-system');
     const orbs = document.querySelectorAll('.orb');
     const cottonBody = document.querySelectorAll('.cotton-body');
-    const totalOrbs = orbs.length
+    const totalOrbs = orbs.length;
 
     const radiusX = 350;
     const radiusY = 100;
     const orbScrollStart = 2800;
 
+    let autoAngle = 0;
+    let isHovered = false;
+
     menuButton.addEventListener('click', () => {
         mainMenu.classList.toggle('open-menu');
-        if(menuButton.innerHTML === "Menu"){
+        if (menuButton.innerHTML === "Menu") {
             menuButton.innerHTML = "Close";
         } else {
             menuButton.innerHTML = "Menu";
         }
     })
-    
+
     const textLines = [
         "ようこそ、観測者さん。",
         "ここは『Observation No.0085』。",
@@ -36,17 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
         "ずっと静かな場所なので...",
         "どうぞ、あなたのペースで、ゆっくりしていってください。",
     ];
-    function startTyping(){
+    function startTyping() {
         let lineIndex = 0;
         let charIndex = 0;
-        
-        function type(){
-            if(lineIndex < textLines.length){
-                if(charIndex < textLines[lineIndex].length){
+
+        function type() {
+            if (lineIndex < textLines.length) {
+                if (charIndex < textLines[lineIndex].length) {
                     typedTextElement.innerHTML += textLines[lineIndex].charAt(charIndex);
                     charIndex++;
                     setTimeout(type, 50);
-                }else{
+                } else {
                     typedTextElement.innerHTML += '<br>';
                     lineIndex++;
                     charIndex = 0;
@@ -57,40 +69,40 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     }
 
-    window.addEventListener('scroll', () =>{
+    window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-        if(scrollY > 200){
+        if (scrollY > 200) {
             heroTitle.classList.add('is-visible');
-        }else{
+        } else {
             heroTitle.classList.remove('is-visible');
         }
 
-        if(scrollY > 1000){
+        if (scrollY > 1000) {
             heroTitle.classList.add('is-header');
             header.classList.add('is-active');
             cottonComment.classList.add('is-active');
             cottonImg.classList.add('is-visible');
-            if(!typingStated){
+            if (!typingStated) {
                 typingStated = true;
                 setTimeout(startTyping, 1000)
             }
-        }else{
+        } else {
             heroTitle.classList.remove('is-header');
             header.classList.remove('is-active');
             cottonComment.classList.remove('is-active');
             cottonImg.classList.remove('is-visible');
         }
 
-        if(scrollY > orbScrollStart - 800){
+        if (scrollY > orbScrollStart - 800) {
             orbSystem.classList.add('is-visible');
             cottonComment.classList.remove('is-active');
             cottonImg.classList.add('is-orb');
-        }else{
+        } else {
             orbSystem.classList.remove('is-visible');
             cottonImg.classList.remove('is-orb');
         }
 
-        if(scrollY > orbScrollStart - 200){
+        if (scrollY > orbScrollStart - 200) {
             let baseAngle = (scrollY - orbScrollStart) * 0.15;
 
             let maxScale = 0;
@@ -111,23 +123,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 orb.classList.remove('is-front');
 
-                if(scale > maxScale){
+                if (scale > maxScale) {
                     maxScale = scale;
                     frontOrbIndex = index;
                 }
             });
-            
+
             orbs[frontOrbIndex].classList.add('is-front');
         }
+
     });
+
+    orbs.forEach(orb => {
+        orb.addEventListener('mouseenter', () => {
+            isHovered = true;
+        });
+        orb.addEventListener('mouseleave', () => {
+            isHovered = false;
+        });
+
+        orb.addEventListener('click', () => {
+            const targetUrl = orb.getAttribute('deta-url');
+
+            if (orb.classList.constains('is-front') && targetUrl) {
+                window.location.href = targetUrl;
+            }
+        });
+    });
+
+
 });
 
-orbs.forEach(orb =>{
-    orb.addEventListener('click', () =>{
-        const targetUrl = orb.getAttribute('deta-url');
-
-        if(orb.classList.constains('is-front') && targetUrl){
-            window.location.href = targetUrl;
-        }
-    });
-});
