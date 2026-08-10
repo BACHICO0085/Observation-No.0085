@@ -145,7 +145,7 @@ h1 {
 
 
 
-/* Archive -------------------------------- */
+/* modal -------------------------------- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -270,6 +270,7 @@ h1 {
     font-family: 'Noto Serif JP', serif;
     text-decoration: none;
 }
+
 .modal-title a:hover {
     color: #7fffd4;
     border-color: #7fffd4;
@@ -292,6 +293,22 @@ h1 {
     white-space: pre-wrap;
     letter-spacing: 0.05em;
 }
+
+.modal-description a {
+    font-size: 0.7rem;
+    line-height: 1.8;
+    color: #c0d5e0;
+    white-space: pre-wrap;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+}
+
+.modal-description a:hover {
+    color: #7fffd4;
+    border-color: #7fffd4;
+    text-shadow: 0 0 15px rgba(127, 255, 212, 0.4);
+}
+
 
 
 .modal-nav-btn {
@@ -386,9 +403,31 @@ h1 {
     transform: scale(1.08);
 }
 
-/* main -------------------------------- */
+/* custodian -------------------------------- */
+.custodian-container {
+    display: flex;
+    margin: 80px 10vw 20px;
+}
 
+.custodian-container img {
+    flex: 1;
+    width: 15vw;
+    height: auto;
+}
 
+.cotton-data {
+    flex: 1;
+}
+
+.cotton-name {
+    display: flex;
+    align-items: baseline;
+    margin-left: 20px;
+}
+
+.cotton-name p {
+    margin-left: 20px;
+}
 
 
 /* footer -------------------------------- */
@@ -403,7 +442,7 @@ footer {
 
 .footer-inner {
     display: flex;
-    margin-bottom: 100px;
+    margin: 0 80px 100px;
     justify-content: center;
 }
 
@@ -430,8 +469,9 @@ footer {
 
 
 .footer-nav {
-    margin: 15px 0 0 10vw;
+    margin: 15px 0 0 3vw;
     display: flex;
+    white-space: nowrap;    
 }
 
 .footer-nav a {
@@ -465,13 +505,12 @@ footer {
 }
 
 
-
 /* movile -------------------------------- */
 @media (max-width: 768px) {
 
     /* header */
     .main-title a {
-        margin-left: 20px;
+        margin-left: 10vw;
         font-size: 0.95rem;
     }
 
@@ -507,6 +546,7 @@ footer {
 
     .modal-info-col {
         padding: 20px 25px 30px 25px;
+        max-height: 40vh;
     }
 
     .gallery-container {
@@ -517,6 +557,7 @@ footer {
     /* footer */
     .footer-inner {
         flex-direction: column;
+        margin: 0 0 80px 0;
     }
 
     .footer-brand {

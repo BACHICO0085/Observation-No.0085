@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modalImg.alt = title;
             modalTitle.innerHTML = title;
             modalDate.textContent = date;
-            modalDesc.textContent = desc;
+            modalDesc.innerHTML = desc;
 
             currentIndex = 0;
             updateModalView();
