@@ -1,34 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // title
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () {
+        document.body.style.overflow = '';
+    }, 3500);
+
     window.addEventListener('load', () => {
         setTimeout(() => {
             const flashLight = document.getElementById('flash-overlay');
             if (flashLight) {
                 flashLight.classList.add('fade-out');
             }
-        }, 500);
+        }, 350);
+
+        setTimeout(() => {
+            const title = document.getElementById('hero-title');
+            const titleMain = document.querySelector('.title-main');
+            const titleSub = document.querySelector('.title-sub');
+
+            if (title) {
+                title.classList.add('is-visible');
+                titleMain.classList.add('is-visible');
+                titleSub.classList.add('is-visible');
+            }
+
+        }, 2000);
     });
 
-    const heroTitle = document.getElementById('hero-title');
-    const header = document.getElementById('global-header');
+    // header
     const menuButton = document.querySelector('.button-menu');
     const mainMenu = document.querySelector('.main-nav');
-
-    const cottonImg = document.getElementById('cotton-img');
-    const cottonComment = document.getElementById('cotton-comment');
-    const typedTextElement = document.getElementById('typed-text');
-    let typingStated = false;
-
-    const orbSystem = document.getElementById('orb-system');
-    const orbs = document.querySelectorAll('.orb');
-    const cottonBody = document.querySelectorAll('.cotton-body');
-    const totalOrbs = orbs.length;
-
-    const radiusX = 350;
-    const radiusY = 100;
-    const orbScrollStart = 2800;
-
-    let autoAngle = 0;
-    let isHovered = false;
 
     menuButton.addEventListener('click', () => {
         mainMenu.classList.toggle('open-menu');
@@ -37,7 +39,30 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             menuButton.innerHTML = "Menu";
         }
-    })
+    });
+
+
+
+
+
+
+    const cottonImg = document.getElementById('cotton-img');
+    const cottonComment = document.getElementById('cotton-comment');
+    const typedTextElement = document.getElementById('typed-text');
+    let typingStated = false;
+
+    // const orbSystem = document.getElementById('orb-system');
+    // const orbs = document.querySelectorAll('.orb');
+    // const cottonBody = document.querySelectorAll('.cotton-body');
+    // const totalOrbs = orbs.length;
+
+    // const radiusX = 350;
+    // const radiusY = 100;
+    // const orbScrollStart = 2800;
+
+    // let autoAngle = 0;
+    // let isHovered = false;
+
 
     const textLines = [
         "ようこそ、観測者さん。",
@@ -45,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         "現実と仮想世界のはざまに浮かぶ、小さな観測所です。",
         "BACHICOの形作ったものや、思い出の欠片、",
         "僕が大切に集めた記録たちが、ここで静かに眠っています。",
-        "ずっと静かな場所なので...",
         "どうぞ、あなたのペースで、ゆっくりしていってください。",
     ];
     function startTyping() {
@@ -71,15 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-        if (scrollY > 200) {
-            heroTitle.classList.add('is-visible');
-        } else {
-            heroTitle.classList.remove('is-visible');
-        }
+    //     if (scrollY > 200) {
+    //         heroTitle.classList.add('is-visible');
+    //     } else {
+    //         heroTitle.classList.remove('is-visible');
+    //     }
 
-        if (scrollY > 1000) {
-            heroTitle.classList.add('is-header');
-            header.classList.add('is-active');
+        if (scrollY > 400) {
+    //         heroTitle.classList.add('is-header');
+    //         header.classList.add('is-active');
             cottonComment.classList.add('is-active');
             cottonImg.classList.add('is-visible');
             if (!typingStated) {
@@ -87,69 +111,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(startTyping, 1000)
             }
         } else {
-            heroTitle.classList.remove('is-header');
-            header.classList.remove('is-active');
+    //         heroTitle.classList.remove('is-header');
+    //         header.classList.remove('is-active');
             cottonComment.classList.remove('is-active');
             cottonImg.classList.remove('is-visible');
         }
 
-        if (scrollY > orbScrollStart - 800) {
-            orbSystem.classList.add('is-visible');
-            cottonComment.classList.remove('is-active');
-            cottonImg.classList.add('is-orb');
-        } else {
-            orbSystem.classList.remove('is-visible');
-            cottonImg.classList.remove('is-orb');
-        }
+    //     if (scrollY > orbScrollStart - 800) {
+    //         orbSystem.classList.add('is-visible');
+    //         cottonComment.classList.remove('is-active');
+    //         cottonImg.classList.add('is-orb');
+    //     } else {
+    //         orbSystem.classList.remove('is-visible');
+    //         cottonImg.classList.remove('is-orb');
+    //     }
 
-        if (scrollY > orbScrollStart - 200) {
-            let baseAngle = (scrollY - orbScrollStart) * 0.15;
+    //     if (scrollY > orbScrollStart - 200) {
+    //         let baseAngle = (scrollY - orbScrollStart) * 0.15;
 
-            let maxScale = 0;
-            let frontOrbIndex = 0;
+    //         let maxScale = 0;
+    //         let frontOrbIndex = 0;
 
-            orbs.forEach((orb, index) => {
-                let angle = baseAngle + (360 / totalOrbs) * index;
-                let rad = angle * (Math.PI / 180);
+    //         orbs.forEach((orb, index) => {
+    //             let angle = baseAngle + (360 / totalOrbs) * index;
+    //             let rad = angle * (Math.PI / 180);
 
-                let x = Math.cos(rad) * radiusX;
-                let y = Math.sin(rad) * radiusY;
+    //             let x = Math.cos(rad) * radiusX;
+    //             let y = Math.sin(rad) * radiusY;
 
-                let scale = (y + radiusY) / (radiusY * 2) * 0.5 + 0.5;
-                let zIndex = Math.round(scale * 100);
+    //             let scale = (y + radiusY) / (radiusY * 2) * 0.5 + 0.5;
+    //             let zIndex = Math.round(scale * 100);
 
-                orb.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(${scale})`;
-                orb.style.zIndex;
+    //             orb.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(${scale})`;
+    //             orb.style.zIndex;
 
-                orb.classList.remove('is-front');
+    //             orb.classList.remove('is-front');
 
-                if (scale > maxScale) {
-                    maxScale = scale;
-                    frontOrbIndex = index;
-                }
-            });
+    //             if (scale > maxScale) {
+    //                 maxScale = scale;
+    //                 frontOrbIndex = index;
+    //             }
+    //         });
 
-            orbs[frontOrbIndex].classList.add('is-front');
-        }
+    //         orbs[frontOrbIndex].classList.add('is-front');
+    //     }
 
     });
 
-    orbs.forEach(orb => {
-        orb.addEventListener('mouseenter', () => {
-            isHovered = true;
-        });
-        orb.addEventListener('mouseleave', () => {
-            isHovered = false;
-        });
+    // orbs.forEach(orb => {
+    //     orb.addEventListener('mouseenter', () => {
+    //         isHovered = true;
+    //     });
+    //     orb.addEventListener('mouseleave', () => {
+    //         isHovered = false;
+    //     });
 
-        orb.addEventListener('click', () => {
-            const targetUrl = orb.getAttribute('deta-url');
+    //     orb.addEventListener('click', () => {
+    //         const targetUrl = orb.getAttribute('deta-url');
 
-            if (orb.classList.constains('is-front') && targetUrl) {
-                window.location.href = targetUrl;
-            }
-        });
-    });
+    //         if (orb.classList.constains('is-front') && targetUrl) {
+    //             window.location.href = targetUrl;
+    //         }
+    //     });
+    // });
 
 
 });

@@ -21,7 +21,7 @@
         rel="stylesheet">
 
     <!-- original css, js -->
-    <link rel="stylesheet" href="style-entrance.css">
+    <link rel="stylesheet" href="../style-bace.css">
     <script defer src="script-entrance.js"></script>
 
     <!-- ogp -->
@@ -34,19 +34,27 @@
     <div class="fixed-background"></div>
 
     <header id="global-header" class="global-header">
+
+        <div class="main-title">
+            <a href="entrance.html">Observation No.0085</a>
+        </div>
+
         <nav class="header-nav">
-            <a href="../custodian.html">Custodian</a>
-            <a href="../archive.html">Archive</a>
-            <a href="../world-log.html">World Log</a>
+            <div class="pc-only">
+                <a href="../archive.html">Archive</a>
+                <a href="../world-log.html">World Log</a>
+                <a href="../profile.html">Profile</a>
+            </div>
 
             <button class="button-menu">Menu</button>
 
             <div class="main-nav">
                 <ul>
                     <li><a href="entrance.html">Entrance</a></li>
-                    <li><a href="../custodian.html">Custodian</a></li>
+                    <li><a href="../profile.html">Profile</a></li>
                     <li><a href="../archive.html">Archive</a></li>
                     <li><a href="../world-log.html">World Log</a></li>
+                    <li><a href="../custodian.html">Custodian</a></li>
                     <li><a href="#collection">Collection</a></li>
                     <li><a href="#note">Observation Note</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -54,27 +62,33 @@
                 <a href="index.html" class="to-top">to top ⇀</a>
             </div>
         </nav>
+
     </header>
 
-    <div id="hero-title" class="title-container">
-        <a href="entrance.html" id="logo-link">
-            <h1 class="main-title">Observation No.0085</h1>
-            <p class="sub-title">Somewhere between worlds.</p>
-        </a>
-    </div>
-
-    <div id="cotton-img" class="cotton-character">
-        <img src="../images/export.png" alt="CottonArkwright" class="cotton-body">
-        <p class="cotton-name">Cotton Arkwright</p>
-    </div>
-    <div id="cotton-comment" class="comment-container">
-        <div class="speech-bubble">
-            <p id="typed-text"></p>
+    <main>
+        <div id="hero-title" class="title-container">
+            <h1 class="title-main">Observation No.0085</h1>
+            <p class="title-sub">- Somewhere between worlds. -</p>
         </div>
-    </div>
 
-    <div class="comment-container"></div>
-    <div id="orb-system" class="orb-system">
+        <div class="greeting-container">
+            <div id="cotton-img" class="cotton-character">
+                <img src="../images/export.png" alt="CottonArkwright" class="cotton-body">
+                <p class="cotton-name">Cotton Arkwright</p>
+            </div>
+            <div id="cotton-comment" class="comment-container">
+                <div class="speech-bubble">
+                    <p id="typed-text"></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+    <!-- <div id="orb-system" class="orb-system">
         <div class="orb-container">
 
             <div class="orb" data-url="#keeper">
@@ -119,14 +133,15 @@
         </div>
     </div>
 
-    <main class="scroll-space"></main>
+    <main class="scroll-space"></main> -->
 
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">
                 <p class="footer-title">Observation No.0085</p>
                 <p class="footer-sub">- Somewhere between worlds. -</p>
-                <p class="copyright">All images and contents &copy; 2026 BACHICO. Don't reuse or reprint without permission.</p>
+                <p class="copyright">All images and contents &copy; 2026 BACHICO. Don't reuse or reprint without
+                    permission.</p>
             </div>
 
             <nav class="footer-nav">
@@ -137,7 +152,8 @@
                 </div>
                 <div class="footer-link">
                     <a href="https://x.com/BACHICO_85" target="_blank" rel="noopener noreferrer">X.com &#8640;</a>
-                    <a href="https://www.pixiv.net/users/78044295" target="_blank" rel="noopener noreferrer">pixiv&#8640;</a>
+                    <a href="https://www.pixiv.net/users/78044295" target="_blank"
+                        rel="noopener noreferrer">pixiv&#8640;</a>
                 </div>
             </nav>
         </div>

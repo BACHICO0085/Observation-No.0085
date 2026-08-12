@@ -220,27 +220,6 @@ body a:hover::after {
     visibility: visible;
 }
 
-.cotton-character {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    transform: translateX(-25%);
-
-    opacity: 0;
-    visibility: hidden;
-    transition: transform 1.5s cubic-bezier(0.215, 0.61, 0.355, 1),
-        opacity 1.5s ease,
-        visibility 1.5s ease;
-    z-index: 10;
-}
-
-.cotton-character.is-visible {
-    transform: translateX(10%);
-    opacity: 1;
-    visibility: visible;
-}
 
 /* .cotton-character.is-orb{
     transform: translate(2%, -92%);
