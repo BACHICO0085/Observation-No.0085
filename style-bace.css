@@ -209,8 +209,30 @@ h1 {
     margin: 10px 5vw 0 12vw;
 }
 
+a {
+    font-family: 'Cormaorant Garanomd', 'Noto Serif JP', serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #7fffd4;
+    text-shadow: 0 0 15px rgba(127, 255, 212, 0.6);
+}
 
 /* entrance ----------------------------- */
+.fixed-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(images/entrance.png);
+    background-size: cover;
+    background-position: center;
+    z-index: -999;
+}
+
 .greeting-container {
     display: flex;
     margin: 0 13vw;
@@ -243,6 +265,11 @@ h1 {
     object-position: top;
 }
 
+.cotton-character p {
+    justify-content: center;
+    margin: 0 0.5px 0 0;
+}
+
 .comment-container {
     position: relative;
     transform: translateX(-50%, -50%);
@@ -272,6 +299,44 @@ h1 {
     -webkit-backdrop-filter: blur(10px);
 }
 
+
+.entrance-container {
+    margin: 20vh 20px 10vh 25vw;
+    transform: skewX(20deg);
+}
+
+.entrance-item {
+    display: flex;
+    margin: 10vh 0;
+    transform: skewX(-20deg);
+}
+
+.entrance-orb {
+    width: 100px;
+    height: 100px;
+    background: rgba(127, 255, 212, 0.15);
+    border-radius: 100%;
+    border: 1px solid rgba(127, 255, 212, 0.4);
+    transition: transform 0.4s ease;
+}
+
+.entrance-orb:hover {
+    box-shadow: 0 0 15px rgba(127, 255, 212, 0.6);
+    transform: scale(1.08);
+}
+
+.page-container {
+    margin: 0 0 0 5vw;
+}
+
+.page-title {
+    display: flex;
+    align-items: baseline;
+}
+
+.page-title h1 {
+    margin: 0;
+}
 
 /* modal -------------------------------- */
 .modal-overlay {
@@ -421,6 +486,15 @@ h1 {
     white-space: pre-wrap;
     letter-spacing: 0.05em;
 }
+.modal-description th{
+    font-weight: 100;
+    text-align: end;
+}
+.modal-description caption{
+    text-align: left;
+    margin-bottom: 0.3rem;
+}
+
 
 .modal-description a {
     font-size: 0.7rem;
@@ -531,6 +605,12 @@ h1 {
     transform: scale(1.08);
 }
 
+
+/* profile----------------------------------- */
+.profile-container{
+    margin: 30px;
+}
+
 /* custodian -------------------------------- */
 .custodian-container {
     display: flex;
@@ -562,15 +642,15 @@ h1 {
 footer {
     position: relative;
     margin-top: 200px;
-    /* background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1); */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-inner {
     display: flex;
-    margin: 0 80px 100px;
+    padding: 80px 80px 100px;
     justify-content: center;
 }
 
